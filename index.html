@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VIP Masterclass: Advanced PR & Diplomacy">
-    <title>Masterclass: Advanced PR & Diplomacy</title>
+    <meta name="description" content="VIP Masterclass: B1+ Public Speaking">
+    <title>Masterclass: VIP Public Speaking (B1+)</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,7 +79,7 @@
             render() {
                 if (this.state.hasError) {
                     return (
-                        <div className="glass-panel p-10 rounded-[2rem] w-full max-w-lg mx-auto text-center border-t-8 border-rose-500 shadow-xl animate-fade-in-up">
+                        <div className="glass-panel p-10 rounded-[2rem] w-full max-w-lg mx-auto text-center border-t-8 border-rose-500 shadow-xl animate-fade-in-up shrink-0">
                             <h3 className="text-2xl font-bold text-navy-900 mb-2">Module Error</h3>
                             <p className="text-gray-600 mb-6">A component failed to load. You can safely continue.</p>
                             <button onClick={() => this.setState({ hasError: false })} className="px-6 py-2 bg-navy-900 text-white rounded-xl">Retry</button>
@@ -136,7 +136,7 @@
         };
 
         // =====================================================================
-        // 2. SVG ICONS (FIXED & EXPANDED)
+        // 2. SVG ICONS
         // =====================================================================
         const Icons = {
             Volume: ({ size=20, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>,
@@ -157,7 +157,9 @@
             Lock: ({ size=16, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>,
             User: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>,
             Headphones: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>,
-            Heart: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            Heart: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>,
+            Activity: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>,
+            Smile: ({ size=24, className="" }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x1="9.01" y1="9" y2="9"></line><line x1="15" x1="15.01" y1="9" y2="9"></line></svg>
         };
 
         // =====================================================================
@@ -210,7 +212,7 @@
                     setIsRecording(false);
                     const feedbacks = [
                         { msg: "Excellent rhythm and intonation! 🌟", type: 'perfect' },
-                        { msg: "Great! Make sure to blend the words naturally.", type: 'good' },
+                        { msg: "Great! Keep practicing the pause.", type: 'good' },
                         { msg: "Nailed it! Sounded completely natural.", type: 'perfect' }
                     ];
                     setFeedback(feedbacks[Math.floor(Math.random() * feedbacks.length)]);
@@ -223,14 +225,14 @@
             if (!phrase) return null;
 
             return (
-                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl border-t-8 border-jewel-sapphire relative overflow-hidden w-full max-w-4xl mx-auto">
+                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl border-t-8 border-jewel-sapphire relative overflow-hidden w-full max-w-4xl mx-auto shrink-0">
                     <div className="text-center mb-8 relative z-10">
                         <Badge color="navy">Speaking Clinic</Badge>
                         <h3 className="text-3xl font-extrabold text-navy-900 mt-4 mb-2">{title}</h3>
                         <p className="text-gray-600">{context}</p>
                     </div>
 
-                    <div className="bg-white/80 p-8 rounded-3xl shadow-sm border border-gray-100 text-center mb-8 min-h-[200px] flex flex-col justify-center">
+                    <div className="bg-white/80 p-8 rounded-3xl shadow-sm border border-gray-100 text-center mb-8 min-h-[200px] flex flex-col justify-center shrink-0">
                         <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Phrase {currentIdx + 1} of {phrases.length}</p>
                         <p className="text-2xl md:text-4xl font-light text-navy-900 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: phrase.html }}></p>
                         {phrase.tip && <p className="text-jewel-sapphire text-sm font-bold bg-blue-50 inline-block px-4 py-2 rounded-full mx-auto">💡 Tip: {phrase.tip}</p>}
@@ -257,7 +259,7 @@
                         </div>
                     </div>
 
-                    <div className="mt-8 min-h-[80px] flex flex-col items-center justify-center">
+                    <div className="mt-8 min-h-[80px] flex flex-col items-center justify-center shrink-0">
                         {feedback && (
                             <div className="animate-fade-in-up flex flex-col items-center">
                                 <div className="px-6 py-3 rounded-xl font-bold mb-4 flex items-center gap-2 bg-emerald-100 text-emerald-800 border border-emerald-200 shadow-sm"><Icons.Check size={20} /> {feedback.msg}</div>
@@ -269,7 +271,7 @@
             );
         };
 
-        // 4.2 Press Conference Simulator (FIXED UI)
+        // 4.2 Press Conference Simulator
         const PressSimulator = ({ questions }) => {
             const [isActive, setIsActive] = useState(false);
             const [time, setTime] = useState(60);
@@ -301,15 +303,15 @@
             };
 
             return (
-                <div className="bg-navy-900 text-white p-8 md:p-14 rounded-[3rem] shadow-2xl flex flex-col items-center text-center relative w-full max-w-4xl mx-auto border-t-8 border-rose-500">
-                    <Icons.Camera size={64} className="text-rose-500 mb-4 animate-pulse" />
+                <div className="bg-navy-900 text-white p-8 md:p-14 rounded-[3rem] shadow-2xl flex flex-col items-center text-center relative w-full max-w-4xl mx-auto border-t-8 border-rose-500 shrink-0">
+                    <Icons.Camera size={64} className="text-rose-500 mb-4 animate-pulse shrink-0" />
                     <Badge color="rose">Live Press Conference</Badge>
                     
-                    <div className="w-full flex items-center justify-center my-10 px-4 min-h-[120px]">
+                    <div className="w-full flex items-center justify-center my-8 px-4 shrink-0">
                         <p className="text-2xl md:text-4xl font-light leading-relaxed">"{currentPrompt}"</p>
                     </div>
                     
-                    <div className="relative w-40 h-40 mb-10 flex items-center justify-center">
+                    <div className="relative w-40 h-40 mb-10 flex items-center justify-center shrink-0">
                         <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 140 140">
                             <circle cx="70" cy="70" r={radius} stroke="rgba(255,255,255,0.1)" strokeWidth="8" fill="none" />
                             <circle 
@@ -323,9 +325,9 @@
                         </div>
                     </div>
 
-                    {!isActive && time === 60 && <Button onClick={startSimulation} className="bg-rose-600 hover:bg-rose-500 text-white w-full max-w-xs py-4 text-lg">Next Question</Button>}
-                    {!isActive && time === 0 && <Button onClick={startSimulation} className="bg-white text-navy-900 w-full max-w-xs py-4 text-lg">Reset Timer</Button>}
-                    {isActive && <div className="text-rose-400 font-bold text-xl animate-pulse flex items-center gap-2"><div className="w-3 h-3 bg-rose-500 rounded-full"></div> LIVE RECORDING</div>}
+                    {!isActive && time === 60 && <Button onClick={startSimulation} className="bg-rose-600 hover:bg-rose-500 text-white w-full max-w-xs py-4 text-lg shrink-0">Next Question</Button>}
+                    {!isActive && time === 0 && <Button onClick={startSimulation} className="bg-white text-navy-900 w-full max-w-xs py-4 text-lg shrink-0">Reset Timer</Button>}
+                    {isActive && <div className="text-rose-400 font-bold text-xl animate-pulse flex items-center gap-2 shrink-0"><div className="w-3 h-3 bg-rose-500 rounded-full"></div> LIVE RECORDING</div>}
                 </div>
             );
         };
@@ -349,12 +351,12 @@
             }, [isPlaying]);
 
             return (
-                <div className="bg-black p-6 md:p-8 rounded-3xl w-full max-w-4xl mx-auto border-4 border-gray-800 shadow-2xl relative">
+                <div className="bg-black p-6 md:p-8 rounded-3xl w-full max-w-4xl mx-auto border-4 border-gray-800 shadow-2xl relative shrink-0">
                     <div className="flex justify-between items-center mb-6">
                         <Badge color="emerald">Teleprompter View</Badge>
                         <Button onClick={() => setIsPlaying(!isPlaying)} className={isPlaying ? 'bg-rose-600 text-white' : 'bg-emerald-500 text-navy-900'}>{isPlaying ? 'Pause' : 'Start'}</Button>
                     </div>
-                    <div className="h-[400px] overflow-hidden relative border-t-2 border-b-2 border-white/10">
+                    <div className="h-[400px] overflow-hidden relative border-t-2 border-b-2 border-white/10 shrink-0">
                         <div className="absolute top-1/2 left-0 w-full h-1 bg-rose-500/50 -translate-y-1/2 pointer-events-none z-10"></div>
                         <div ref={contentRef} className="h-full overflow-y-auto px-6 md:px-10 py-[200px]" style={{ scrollbarWidth: 'none' }}>
                             <p className="text-3xl md:text-5xl font-bold text-white uppercase leading-[1.8] tracking-wide whitespace-pre-line text-center">{text}</p>
@@ -373,26 +375,26 @@
             if (!card) return null;
 
             return (
-                <div className="w-full max-w-md mx-auto flex flex-col items-center">
+                <div className="w-full max-w-md mx-auto flex flex-col items-center shrink-0">
                     <div className="flex justify-between w-full items-center mb-6"><Badge color="gold">{deckName}</Badge><span className="text-gray-500 font-bold text-sm">Card {currentIndex + 1} of {cards.length}</span></div>
-                    <div className="relative w-full h-80 perspective-1000 cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
+                    <div className="relative w-full h-80 perspective-1000 cursor-pointer group shrink-0" onClick={() => setIsFlipped(!isFlipped)}>
                         <div className={`w-full h-full absolute transition-all duration-700 transform-style-3d shadow-xl rounded-3xl ${isFlipped ? 'rotate-y-180' : ''}`}>
                             {/* Front */}
                             <div className="absolute w-full h-full backface-hidden bg-white/90 backdrop-blur-sm rounded-3xl border border-gray-200 flex flex-col items-center justify-center p-8 text-center group-hover:border-gold-400">
                                 <TTSButton text={card.term} className="absolute top-4 right-4 bg-navy-50 text-navy-900" />
                                 {card.icon && <card.icon size={56} className="text-gold-500 mb-6 opacity-80" />}
-                                <h3 className="text-4xl font-extrabold text-navy-900 mb-2">{card.term}</h3>
+                                <h3 className="text-3xl font-extrabold text-navy-900 mb-2">{card.term}</h3>
                                 <p className="text-gray-400 text-sm mt-4 font-bold tracking-widest bg-gray-100 px-4 py-1 rounded-full">TAP TO FLIP</p>
                             </div>
                             {/* Back */}
                             <div className="absolute w-full h-full backface-hidden bg-navy-900 rounded-3xl rotate-y-180 flex flex-col items-center justify-center p-8 text-center text-white border-b-8 border-gold-500">
-                                <h4 className="text-gold-400 font-bold uppercase tracking-widest mb-2 text-xs">Usage in Context</h4>
+                                <h4 className="text-gold-400 font-bold uppercase tracking-widest mb-2 text-xs">Meaning</h4>
                                 <p className="text-xl mb-6 font-light leading-snug">{card.def}</p>
                                 <div className="bg-white/10 p-5 rounded-2xl w-full border border-white/5"><p className="italic text-white text-sm">"{card.example}"</p></div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex gap-4 mt-8 w-full">
+                    <div className="flex gap-4 mt-8 w-full shrink-0">
                         <Button variant="ghost" onClick={() => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => p === 0 ? cards.length - 1 : p - 1), 150); }} className="flex-1 bg-white border border-gray-200"><Icons.ChevronLeft/> Prev</Button>
                         <Button variant="primary" onClick={() => { setIsFlipped(false); setTimeout(() => setCurrentIndex(p => (p + 1) % cards.length), 150); }} className="flex-1 bg-gold-500 text-navy-900">Next <Icons.ChevronRight/></Button>
                     </div>
@@ -436,12 +438,12 @@
             const parts = phrase.split(/\{(\d+)\}/g);
 
             return (
-                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl w-full max-w-4xl mx-auto text-center border-t-8 border-jewel-amethyst animate-fade-in-up">
+                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-xl w-full max-w-4xl mx-auto text-center border-t-8 border-jewel-amethyst animate-fade-in-up shrink-0">
                     <Icons.Smartphone size={48} className="mx-auto text-jewel-amethyst mb-4" />
                     <h3 className="text-2xl font-bold text-navy-900 mb-2">{title}</h3>
-                    <p className="text-gray-500 mb-10">Tap the words in the word bank below to fill in the blanks and create the perfect PR statement.</p>
+                    <p className="text-gray-500 mb-10">Tap the words in the word bank below to fill in the blanks and create the perfect statement.</p>
 
-                    <div className={`p-6 md:p-8 bg-white rounded-2xl shadow-sm mb-8 leading-loose text-xl md:text-2xl font-light text-navy-900 border-2 transition-colors ${status === 'success' ? 'border-emerald-500 bg-emerald-50' : status === 'error' ? 'border-rose-500 animate-shake' : 'border-gray-200'}`}>
+                    <div className={`p-6 md:p-8 bg-white rounded-2xl shadow-sm mb-8 leading-loose text-xl md:text-2xl font-light text-navy-900 border-2 transition-colors shrink-0 ${status === 'success' ? 'border-emerald-500 bg-emerald-50' : status === 'error' ? 'border-rose-500 animate-shake' : 'border-gray-200'}`}>
                         {parts.map((part, idx) => {
                             if (!isNaN(part)) {
                                 const slotIdx = parseInt(part); const word = slots[slotIdx];
@@ -458,7 +460,7 @@
                         })}
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 min-h-[60px]">
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 min-h-[60px] shrink-0">
                         {bank.map((word, idx) => (
                             <button key={idx} onClick={() => handleBankClick(word, idx)} className="px-4 py-2 bg-white border border-gray-300 text-navy-800 rounded-full font-bold shadow-sm hover:shadow-md hover:border-jewel-amethyst transition-all active:scale-95 text-sm md:text-base">
                                 {word}
@@ -467,9 +469,9 @@
                     </div>
 
                     {status === 'success' ? (
-                        <div className="bg-emerald-100 text-emerald-800 font-bold p-4 rounded-xl inline-flex items-center gap-2"><Icons.Check/> Perfect!</div>
+                        <div className="bg-emerald-100 text-emerald-800 font-bold p-4 rounded-xl inline-flex items-center gap-2 shrink-0"><Icons.Check/> Perfect!</div>
                     ) : (
-                        <Button onClick={checkAnswer} variant="primary" disabled={slots.includes(null)} className="mx-auto">Check Statement</Button>
+                        <Button onClick={checkAnswer} variant="primary" disabled={slots.includes(null)} className="mx-auto shrink-0">Check Statement</Button>
                     )}
                 </div>
             );
@@ -493,249 +495,237 @@
         };
 
         // =====================================================================
-        // 5. MASTERCLASS CURRICULUM DATA (Chunks, Pronunciation, NO GRAMMAR)
+        // 5. MASTERCLASS CURRICULUM DATA (100% CHUNKS, NO GRAMMAR, B1+)
         // =====================================================================
         const MASTERCLASS_DATA = [
             {
-                id: 'intro', title: "Advanced PR & Diplomacy", subtitle: "Welcome",
+                id: 'intro', title: "VIP Speaking (Level B1+)", subtitle: "Welcome",
                 content: () => (
-                    <div className="text-center animate-fade-in-up flex flex-col items-center">
+                    <div className="text-center animate-fade-in-up flex flex-col items-center shrink-0">
                         <Icons.Globe size={100} className="text-navy-900 mb-8 drop-shadow-xl" />
                         <p className="text-2xl text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
-                            Welcome to the elite level. We are dropping grammar rules completely. Instead, you will memorize and master <strong className="text-navy-900 font-bold">Lexical Chunks</strong> (fixed phrases) used by top diplomats and public figures.
+                            Welcome! In this course, we forget about grammar rules. Instead, you will memorize <strong className="text-navy-900 font-bold">Lexical Chunks</strong> (fixed blocks of words) to sound natural, polite, and confident in public.
                         </p>
                         <div className="flex gap-4">
                             <Badge color="navy">100% Speaking</Badge>
-                            <Badge color="gold">Professional Track</Badge>
+                            <Badge color="gold">No Grammar Rules</Badge>
                         </div>
                     </div>
                 ),
-                note: "Explain the Lexical Approach: native speakers don't build sentences word-by-word using grammar rules; they use pre-assembled 'chunks' of language. We will practice these chunks today."
+                note: "Explain the Lexical Approach to the student: Native speakers don't build sentences word-by-word; they use pre-assembled 'chunks'. We will practice these chunks today."
             },
             {
-                id: 'media-1', title: "The Diplomatic Pivot", subtitle: "Word Chunks: Media",
+                id: 'pivot-1', title: "The Polite Pivot", subtitle: "Chunk: Changing the subject",
                 content: () => (
-                    <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl w-full max-w-5xl mx-auto border-t-8 border-rose-500">
-                        <h3 className="text-3xl font-extrabold text-navy-900 mb-6">Handling Negative Questions</h3>
-                        <p className="text-xl text-gray-600 mb-10">When asked a difficult question, do not defend yourself. Use a <strong className="text-rose-600">Pivot Phrase</strong> to smoothly change the subject.</p>
+                    <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl w-full max-w-5xl mx-auto border-t-8 border-rose-500 shrink-0">
+                        <h3 className="text-3xl font-extrabold text-navy-900 mb-6">Handling Hard Questions</h3>
+                        <p className="text-xl text-gray-600 mb-10">When someone asks a difficult question, don't panic. Use this <strong className="text-rose-600">Pivot Chunk</strong> to smile and change the subject smoothly.</p>
                         
                         <div className="bg-rose-50 border-l-4 border-rose-500 p-6 rounded-r-2xl mb-8">
                             <p className="font-bold text-rose-800 text-sm uppercase mb-2">Reporter Question:</p>
-                            <p className="text-lg italic text-gray-800">"Many people think pageants are outdated and superficial. What do you say?"</p>
+                            <p className="text-lg italic text-gray-800">"Why should you win instead of the other candidates?"</p>
                         </div>
                         
                         <div className="bg-emerald-50 border border-emerald-200 p-8 rounded-2xl shadow-sm">
                             <p className="font-bold text-emerald-800 text-sm uppercase mb-4">Memorize this Chunk:</p>
                             <div className="flex items-start gap-4">
-                                <TTSButton text="That is an interesting perspective, but what I really want to focus on is the platform this gives young women to advocate for real social change." className="bg-white text-navy-900"/>
-                                <p className="text-2xl font-light pt-1 leading-relaxed">"<Chunk color="emerald">That is an interesting perspective</Chunk>, but <Chunk color="emerald">what I really want to focus on is</Chunk> the platform this gives young women..."</p>
+                                <TTSButton text="That's a great question, but I want to focus on my own journey and projects." className="bg-white text-navy-900"/>
+                                <p className="text-2xl font-light pt-1 leading-relaxed">"<Chunk color="emerald">That's a great question, but I want to focus on</Chunk> my own journey and projects."</p>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Teach the phrase exactly as a single block of vocabulary. Do not analyze the grammar. Focus on the transition from acknowledging to changing the subject."
+                note: "Teach the phrase exactly as a single block of vocabulary. Make the student practice it until they don't have to think about the words."
             },
             {
                 id: 'clinic-1', title: "Pronouncing the Pivot", subtitle: "Speaking Clinic",
                 content: () => (
                     <PronunciationPractice 
                         title="Mastering the Tone"
-                        context="Practice saying this Pivot Chunk. It must sound warm, not defensive."
+                        context="Practice saying this Pivot Chunk. It must sound warm and friendly, not defensive."
                         phrases={[
-                            { raw: "That is an interesting perspective, but what I really want to focus on is...", html: "<strong class='text-emerald-600'>That is an interesting perspective</strong>, / but <strong class='text-emerald-600'>what I really want to focus on is</strong>...", tip: "Pause slightly at the comma. Keep your voice calm and steady." }
+                            { raw: "That's a great question, but I want to focus on...", html: "<strong class='text-emerald-600'>That's a great question</strong>, / but <strong class='text-emerald-600'>I want to focus on</strong>...", tip: "Pause slightly at the comma. Smile while saying 'great question'." }
                         ]}
                     />
                 ),
-                note: "Listen to the student's tone. If they sound angry or defensive, make them smile while they say it to soften the sound."
+                note: "Listen to the student's tone. If they sound angry or nervous, make them smile while they say it to soften the sound."
             },
             {
-                id: 'media-2', title: "The Hypothetical Scenario", subtitle: "Word Chunks: Interviews",
+                id: 'whatif-1', title: "The 'What If' Chunk", subtitle: "Chunk: Future Scenarios",
                 content: () => (
-                    <div className="bg-navy-900 text-white p-10 md:p-14 rounded-[2.5rem] shadow-2xl w-full max-w-5xl mx-auto border-t-8 border-gold-500">
-                        <h3 className="text-3xl font-extrabold text-gold-400 mb-6">The "What If" Chunk</h3>
-                        <p className="text-xl text-gray-300 mb-10">Interviewers love hypothetical questions. Memorize this exact starting block so you never hesitate or make a mistake under pressure:</p>
+                    <div className="bg-navy-900 text-white p-10 md:p-14 rounded-[2.5rem] shadow-2xl w-full max-w-5xl mx-auto border-t-8 border-gold-500 shrink-0">
+                        <h3 className="text-3xl font-extrabold text-gold-400 mb-6">Talking about the future</h3>
+                        <p className="text-xl text-gray-300 mb-10">Interviewers love asking 'What will you do?'. Memorize this exact block so you never hesitate or make a mistake under pressure:</p>
                         
                         <div className="bg-white/10 p-8 rounded-2xl border border-white/10 flex items-start gap-5">
-                            <TTSButton text="If I were chosen as the winner, I would dedicate my year to education." className="bg-gold-500 text-navy-900" />
-                            <p className="text-3xl font-light pt-2 leading-relaxed">"<Chunk color="gold">If I were chosen as the winner,</Chunk> I <Chunk color="gold">would dedicate</Chunk> my year to education."</p>
+                            <TTSButton text="If I win this title, I would love to create more opportunities for children." className="bg-gold-500 text-navy-900" />
+                            <p className="text-3xl font-light pt-2 leading-relaxed">"<Chunk color="gold">If I win this title,</Chunk> I <Chunk color="gold">would love to</Chunk> create more opportunities for children."</p>
                         </div>
-                        <p className="mt-8 text-sm text-rose-300 font-bold bg-rose-900/50 p-4 rounded-xl inline-block text-center w-full">💡 Memorize "If I were chosen" as one single word. Never break it apart.</p>
+                        <p className="mt-8 text-sm text-rose-300 font-bold bg-rose-900/50 p-4 rounded-xl inline-block text-center w-full">💡 Memorize "If I win" and "I would love to" as fixed pairs.</p>
                     </div>
                 ),
-                note: "Again, no grammar explanations. Just have them repeat 'If I were chosen as the winner' 5 times until it becomes muscle memory."
+                note: "Just have them repeat 'If I win this title, I would love to...' 5 times until it becomes muscle memory. Don't explain conditionals."
             },
             {
-                id: 'media-3', title: "The Hot Seat", subtitle: "Press Conference Simulator",
+                id: 'clinic-2', title: "Pronouncing 'What If'", subtitle: "Speaking Clinic",
+                content: () => (
+                    <PronunciationPractice 
+                        title="Dreaming Big"
+                        context="Practice saying this chunk with passion and hope in your voice."
+                        phrases={[
+                            { raw: "If I win this title, I would love to help my community.", html: "<strong class='text-gold-500'>If I win this title</strong>, / I <strong class='text-gold-500'>would love to</strong> help my community.", tip: "Put the energy and stress on 'love to'." }
+                        ]}
+                    />
+                ),
+                note: "Make sure they don't sound flat. The words 'love to' should carry emotion."
+            },
+            {
+                id: 'press-1', title: "The Hot Seat", subtitle: "Press Conference Simulator",
                 content: () => (
                     <PressSimulator questions={[
-                        "What would you do if you were chosen as the winner tonight?",
-                        "Some say modern pageantry is superficial. How do you respond?",
-                        "If you had the power to change one law, what would it be?",
-                        "How do you handle intense pressure and criticism on social media?"
+                        "Why should you win the crown tonight?",
+                        "If you win this title, what is your first project?",
+                        "Many people think this competition is too easy. What do you say?",
+                        "If you become the winner, how will you use your voice?"
                     ]} />
                 ),
-                note: "Have the student start the timer. They must answer using the exact chunks: 'If I were chosen...' or 'That is an interesting perspective, but...'."
+                note: "Have the student start the timer. They must answer using the exact chunks: 'If I win this title...' or 'That's a great question, but...'."
             },
             {
-                id: 'gala-1', title: "Gala Networking", subtitle: "Word Chunks: Ice Breakers",
+                id: 'smalltalk-1', title: "Ice Breakers", subtitle: "Chunk: Small Talk",
                 content: () => (
-                    <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl w-full max-w-5xl mx-auto border-t-8 border-purple-500">
+                    <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl w-full max-w-5xl mx-auto border-t-8 border-purple-500 shrink-0">
                         <h3 className="text-3xl font-extrabold text-navy-900 mb-6">Inviting Conversation</h3>
-                        <p className="text-xl text-gray-600 mb-10">During a gala, avoid dead silence. Use these <strong className="text-purple-600">Ending Chunks</strong> to make your statements sound like warm invitations to chat.</p>
+                        <p className="text-xl text-gray-600 mb-10">At events, don't let the conversation die. Use these <strong className="text-purple-600">Ending Chunks</strong> to make your sentences sound like warm invitations to chat.</p>
                         
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="bg-purple-50 p-8 rounded-2xl border border-purple-200">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <TTSButton text="The venue is absolutely breathtaking, isn't it?" className="bg-white text-navy-900" />
-                                    <p className="text-2xl font-light">"The venue is absolutely breathtaking, <Chunk color="purple">isn't it?</Chunk>"</p>
+                                    <TTSButton text="The event is beautiful, isn't it?" className="bg-white text-navy-900" />
+                                    <p className="text-2xl font-light">"The event is beautiful, <Chunk color="purple">isn't it?</Chunk>"</p>
                                 </div>
                             </div>
                             <div className="bg-purple-50 p-8 rounded-2xl border border-purple-200">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <TTSButton text="You haven't tried the champagne yet, have you?" className="bg-white text-navy-900" />
-                                    <p className="text-2xl font-light">"You haven't tried the champagne yet, <Chunk color="purple">have you?</Chunk>"</p>
+                                    <TTSButton text="You are enjoying the trip, right?" className="bg-white text-navy-900" />
+                                    <p className="text-2xl font-light">"You are enjoying the trip, <Chunk color="purple">right?</Chunk>"</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Teach 'isn't it?' and 'have you?' as fixed phrases attached to the end of sentences to keep the ball in the other person's court."
+                note: "Teach 'isn't it?' and 'right?' as fixed phrases attached to the end of sentences to keep the conversation going."
             },
             {
-                id: 'gala-2', title: "The Graceful Exit", subtitle: "Word Chunks: Exits",
+                id: 'clinic-3', title: "Pronouncing Small Talk", subtitle: "Speaking Clinic",
                 content: () => (
-                    <div className="bg-navy-900 text-white p-10 md:p-14 rounded-[2.5rem] shadow-2xl w-full max-w-5xl mx-auto border-t-8 border-gold-500 text-center">
+                    <PronunciationPractice 
+                        title="Keeping it Casual"
+                        context="Your intonation must go DOWN at the end to sound friendly, not like an interrogation."
+                        phrases={[
+                            { raw: "The event is beautiful, isn't it?", html: "The event is beautiful, <strong class='text-purple-600'>isn't it? ↘</strong>", tip: "Let your pitch drop slightly on 'isn't it'." },
+                            { raw: "You are enjoying the trip, right?", html: "You are enjoying the trip, <strong class='text-purple-600'>right? ↘</strong>", tip: "Say 'right' softly, with a smile." }
+                        ]}
+                    />
+                ),
+                note: "Intonation is everything here. If their voice goes up high at the end, it sounds like they are demanding an answer."
+            },
+            {
+                id: 'exit-1', title: "The Graceful Exit", subtitle: "Chunk: Saying Goodbye",
+                content: () => (
+                    <div className="bg-navy-900 text-white p-10 md:p-14 rounded-[2.5rem] shadow-2xl w-full max-w-5xl mx-auto border-t-8 border-gold-500 text-center shrink-0">
                         <Icons.User size={80} className="mx-auto text-gold-500 mb-6" />
                         <h3 className="text-3xl font-extrabold text-white mb-6">Leaving a conversation elegantly</h3>
-                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Never say "I have to go". Memorize this fixed chunk to leave any conversation with maximum diplomacy.</p>
+                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Never say "I have to go". Memorize this fixed chunk to leave any conversation like a true VIP.</p>
                         
-                        <div className="bg-white/10 p-8 rounded-3xl inline-block border border-gold-500/30">
-                            <div className="flex flex-col items-center gap-6 text-3xl font-light leading-relaxed">
-                                <TTSButton text="It was an absolute pleasure speaking with you. If you'll excuse me, I need to greet the director." className="bg-gold-500 text-navy-900 mb-2" />
-                                <p>"<Chunk color="gold">It was an absolute pleasure</Chunk> speaking with you...</p>
-                                <p>...<Chunk color="gold">If you'll excuse me,</Chunk> I need to [Reason]."</p>
+                        <div className="bg-white/10 p-8 rounded-3xl inline-block border border-gold-500/30 text-left">
+                            <div className="flex flex-col gap-6 text-3xl font-light leading-relaxed">
+                                <div className="flex items-center gap-4">
+                                    <TTSButton text="It was great talking to you. If you'll excuse me, I need to find my team." className="bg-gold-500 text-navy-900 mb-2" />
+                                    <div>
+                                        <p>"<Chunk color="gold">It was great talking to you.</Chunk></p>
+                                        <p><Chunk color="gold">If you'll excuse me,</Chunk> I need to [Find my team]."</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 ),
-                note: "Roleplay: Talk to the student continuously about a boring topic and force them to use the chunk 'If you'll excuse me...' to escape."
+                note: "Roleplay: Talk to the student continuously about a boring topic and force them to use the chunk 'If you'll excuse me...' to escape politely."
             },
             {
-                id: 'clinic-2', title: "Pronouncing the Exit", subtitle: "Speaking Clinic",
+                id: 'clinic-4', title: "Pronouncing the Exit", subtitle: "Speaking Clinic",
                 content: () => (
                     <PronunciationPractice 
                         title="Networking Flow"
                         context="Practice connecting the words fluidly so it sounds natural and polite."
                         phrases={[
-                            { raw: "It was an absolute pleasure speaking with you.", html: "It was an <strong class='text-gold-600'>absolute pleasure</strong> speaking with you.", tip: "Emphasize 'absolute pleasure' with a warm tone." },
-                            { raw: "If you'll excuse me, I need to greet the director.", html: "<strong class='text-gold-600'>If you'll excuse me</strong>, / I need to greet the director.", tip: "Link 'If' and 'you'll' smoothly. Pause at the comma." }
+                            { raw: "It was great talking to you.", html: "It was <strong class='text-gold-600'>great talking</strong> to you.", tip: "Emphasize 'great' with a warm tone." },
+                            { raw: "If you'll excuse me, I need to find my team.", html: "<strong class='text-gold-600'>If you'll excuse me</strong>, / I need to find my team.", tip: "Link 'If' and 'you'll' smoothly. Pause at the comma." }
                         ]}
                     />
                 ),
-                note: "Make sure they don't sound robotic. 'If you'll excuse me' should sound almost apologetic but firm."
+                note: "Make sure they don't sound robotic. 'If you'll excuse me' should sound polite but firm."
             },
             {
-                id: 'cultural-1', title: "Cultural Ambassadorship", subtitle: "Word Collocations",
+                id: 'country-1', title: "Describing Your Country", subtitle: "Word Pairs",
                 content: () => (
-                    <FlashcardDeck deckName="Descriptive Pairings" cards={[
-                        { term: "Breathtaking landscapes", icon: Icons.Globe, def: "Astonishingly beautiful natural scenery.", example: "My country is known for its breathtaking landscapes." },
-                        { term: "Vibrant culture", icon: Icons.Lightbulb, def: "A culture full of energy, life, and bright colors.", example: "We have a vibrant culture full of music and art." },
-                        { term: "Bustling markets", icon: Icons.User, def: "Markets full of busy, lively activity.", example: "You must visit our bustling markets in the historic center." },
-                        { term: "Savory dishes", icon: Icons.Star, def: "Traditional food that is rich and salty/spicy.", example: "I highly recommend trying our traditional savory dishes." }
+                    <FlashcardDeck deckName="Descriptive Pairs" cards={[
+                        { term: "Stunning nature", icon: Icons.Globe, def: "Very beautiful natural views.", example: "My country is known for its stunning nature." },
+                        { term: "Rich culture", icon: Icons.Lightbulb, def: "A culture with deep history and traditions.", example: "We have a very rich culture full of music." },
+                        { term: "Warm people", icon: Icons.Smile, def: "Friendly and welcoming citizens.", example: "You will love the warm people in my hometown." },
+                        { term: "Delicious food", icon: Icons.Star, def: "Very tasty traditional meals.", example: "I highly recommend trying our delicious food." }
                     ]} />
                 ),
-                note: "Notice we are teaching COLLOCATIONS (Adjective + Noun together). Teach 'Bustling markets' as one concept, not two separate words."
+                note: "Notice we are teaching PAIRS (Adjective + Noun together). Teach 'Stunning nature' as one concept, not two separate words."
             },
             {
-                id: 'advocacy-1', title: "Advocacy & Purpose", subtitle: "Action Collocations",
+                id: 'cause-1', title: "Your Social Cause", subtitle: "Action Pairs",
                 content: () => (
-                    <FlashcardDeck deckName="Philanthropy Phrasing" cards={[
-                        { term: "To foster education", icon: Icons.BookOpen, def: "To encourage the development of learning.", example: "My project aims to foster education in rural areas." },
-                        { term: "Underprivileged communities", icon: Icons.Globe, def: "Groups of people lacking basic rights and advantages.", example: "We provide resources to underprivileged communities." },
-                        { term: "To raise awareness", icon: Icons.Mic, def: "To increase public understanding of an issue.", example: "We must raise awareness about mental health." },
-                        { term: "To drive real impact", icon: Icons.Activity, def: "To cause significant positive change.", example: "I want to use this platform to drive real impact." }
+                    <FlashcardDeck deckName="Philanthropy Pairs" cards={[
+                        { term: "To help children", icon: Icons.Smile, def: "To assist young people.", example: "My project aims to help children in rural areas." },
+                        { term: "To create opportunities", icon: Icons.BookOpen, def: "To give people a chance to succeed.", example: "We want to create opportunities for women." },
+                        { term: "To raise awareness", icon: Icons.Mic, def: "To make people know about a problem.", example: "We must raise awareness about mental health." },
+                        { term: "To make a difference", icon: Icons.Heart, def: "To cause a good change in the world.", example: "I want to use this platform to make a difference." }
                     ]} />
                 ),
-                note: "Again, Collocations! 'Raise' goes with 'Awareness'. 'Drive' goes with 'Impact'. Memorizing pairs is much faster than memorizing single words."
+                note: "Memorizing action pairs is much faster than translating single words from Spanish in their head."
             },
             {
-                id: 'advocacy-2', title: "Live Teleprompter", subtitle: "Fluency Practice",
+                id: 'teleprompter-1', title: "The Final Speech", subtitle: "Fluency Practice",
                 content: () => (
-                    <Teleprompter text="Good evening. \n\nTonight, I stand before you not just as a candidate, but as an advocate. \n\nMy primary goal is to foster education in underprivileged communities. \n\nWe must raise awareness about these issues to drive real impact. \n\nThank you." />
+                    <Teleprompter text="Good evening. \n\nI am so happy to be here tonight. \n\nMy goal is to create opportunities for young people. \n\nWe need to raise awareness and make a difference together. \n\nThank you so much." />
                 ),
-                note: "Have the student read aloud. Listen specifically for the collocations they just practiced. Pacing and eye contact are key here."
+                note: "Have the student read aloud. Listen specifically for the Word Pairs they just practiced. Pacing and eye contact are key here."
             },
             {
-                id: 'social-1', title: "Institutional PR Statements", subtitle: "Word Chunks: Writing",
-                content: () => (
-                    <div className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-xl w-full max-w-5xl mx-auto border-t-8 border-navy-900">
-                        <h3 className="text-3xl font-extrabold text-navy-900 mb-6">Sounding Official on Social Media</h3>
-                        <p className="text-xl text-gray-600 mb-10">For Instagram captions or Press Releases, do not use casual language. Memorize these <strong className="text-blue-600">Institutional Chunks</strong> to sound like a true public figure.</p>
-                        
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div className="bg-gray-50 p-8 rounded-3xl border border-gray-200">
-                                <Badge color="rose">Too Casual</Badge>
-                                <p className="text-xl mt-6 italic text-gray-500">"Thanks to the mayor for inviting me to the gala."</p>
-                                <p className="text-xl mt-4 italic text-gray-500">"People expect a lot from us."</p>
-                            </div>
-                            <div className="bg-blue-50 p-8 rounded-3xl border-2 border-blue-400 shadow-md">
-                                <Badge color="navy">Institutional PR</Badge>
-                                <div className="mt-6 flex flex-col gap-2">
-                                    <TTSButton text="I am deeply honored to be invited to the gala." className="bg-white text-navy-900 shadow-sm self-start"/>
-                                    <p className="text-2xl font-light text-navy-900">"<Chunk color="navy">I am deeply honored</Chunk> to be invited to the gala."</p>
-                                </div>
-                                <div className="mt-6 flex flex-col gap-2">
-                                    <TTSButton text="Much is expected from us." className="bg-white text-navy-900 shadow-sm self-start"/>
-                                    <p className="text-2xl font-light text-navy-900">"<Chunk color="navy">Much is expected</Chunk> from us."</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ),
-                note: "Point out that 'I am deeply honored' is a fixed block used constantly in PR. They should just copy-paste it into their vocabulary."
-            },
-            {
-                id: 'social-3', title: "The Perfect Instagram Caption", subtitle: "Statement Builder",
+                id: 'pr-1', title: "The Perfect PR Caption", subtitle: "Statement Builder",
                 content: () => (
                     <WordBuilder 
-                        title="Draft The Post-Coronation Statement"
-                        phrase="I am deeply {0} to have been {1} with this title. Much {2} expected from us, and I am {3} to begin."
-                        expectedWords={["honored", "entrusted", "is", "ready"]}
+                        title="Draft your Instagram Post"
+                        phrase="I am so {0} for this {1} opportunity. Thank you to everyone for your {2}."
+                        expectedWords={["grateful", "amazing", "support"]}
                     />
                 ),
-                note: "Interactive practice combining the formal PR vocabulary."
+                note: "Interactive practice combining formal but simple PR vocabulary suitable for B1+."
             },
             {
-                id: 'clinic-3', title: "Pronouncing the Statement", subtitle: "Speaking Clinic",
+                id: 'graduation', title: "Master of Speaking", subtitle: "Course Complete",
                 content: () => (
-                    <PronunciationPractice 
-                        title="The Official Speech"
-                        context="Read your PR statement with absolute confidence and gravity."
-                        phrases={[
-                            { raw: "I am deeply honored to have been entrusted with this title.", html: "I am <strong class='text-blue-600'>deeply honored</strong> / to have been <strong class='text-blue-600'>entrusted</strong> with this title.", tip: "Add weight to the words 'deeply honored'." },
-                            { raw: "Much is expected from us, and I am ready to begin.", html: "<strong class='text-blue-600'>Much is expected</strong> from us, / and I am ready to begin.", tip: "Pause at the comma to let the first thought sink in." }
-                        ]}
-                    />
-                ),
-                note: "This is the final polish. Ensure their voice sounds commanding but graceful."
-            },
-            {
-                id: 'graduation', title: "Master of Diplomacy", subtitle: "Course Complete",
-                content: () => (
-                    <div className="glass-panel p-10 md:p-16 rounded-[3rem] shadow-2xl border-t-8 border-gold-500 text-center w-full max-w-4xl mx-auto relative overflow-hidden">
+                    <div className="glass-panel p-10 md:p-16 rounded-[3rem] shadow-2xl border-t-8 border-gold-500 text-center w-full max-w-4xl mx-auto relative overflow-hidden shrink-0">
                         <Confetti />
                         <Icons.Award size={100} className="mx-auto text-gold-500 mb-6 drop-shadow-lg" />
-                        <h2 className="text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">Diplomacy Master Certified</h2>
-                        <p className="text-2xl text-gray-600 mb-10 font-light">You now possess the linguistic toolkit of a high-level public figure.</p>
+                        <h2 className="text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">VIP Speaking Certified</h2>
+                        <p className="text-2xl text-gray-600 mb-10 font-light">You now possess the Lexical Chunks of a true public figure.</p>
                         
                         <div className="bg-white/80 p-8 rounded-3xl text-left border border-white shadow-lg flex justify-center">
                             <div>
                                 <h4 className="font-bold text-navy-900 mb-4 uppercase text-sm tracking-widest border-b-2 border-gold-400 pb-2">Mastered Lexical Chunks</h4>
                                 <ul className="space-y-4 text-gray-800 font-medium text-lg">
-                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"What I really want to focus on is..."</em></li>
+                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"That's a great question, but I want to focus on..."</em></li>
                                     <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"If you'll excuse me..."</em></li>
-                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"To raise awareness & drive impact."</em></li>
-                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"I am deeply honored to..."</em></li>
+                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"To raise awareness & make a difference."</em></li>
+                                    <li className="flex items-center gap-3"><Icons.Check className="text-emerald-500"/> <em>"I am so grateful for this opportunity."</em></li>
                                 </ul>
                             </div>
                         </div>
@@ -756,7 +746,7 @@
             const mainRef = useRef(null);
 
             useEffect(() => {
-                const saved = localStorage.getItem('vipDiplomacyChunks');
+                const saved = localStorage.getItem('vipDiplomacyB1');
                 if (saved) {
                     const parsed = parseInt(saved, 10);
                     setMaxUnlocked(parsed); setCurrentSlide(parsed);
@@ -766,7 +756,7 @@
             useEffect(() => {
                 if (currentSlide > maxUnlocked) {
                     setMaxUnlocked(currentSlide);
-                    localStorage.setItem('vipDiplomacyChunks', currentSlide);
+                    localStorage.setItem('vipDiplomacyB1', currentSlide);
                 }
                 if (mainRef.current) mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
             }, [currentSlide, maxUnlocked]);
@@ -789,7 +779,7 @@
                     <header className="bg-navy-900 text-white h-20 flex items-center justify-between px-6 md:px-10 shadow-xl z-40 relative">
                         <div className="flex items-center gap-4">
                             <button onClick={() => setShowMenu(!showMenu)} className="p-2 hover:bg-navy-800 rounded-xl transition-colors"><Icons.Menu size={28} /></button>
-                            <h1 className="font-bold text-xl tracking-wide hidden md:block">Advanced PR & Diplomacy</h1>
+                            <h1 className="font-bold text-xl tracking-wide hidden md:block">VIP Speaking (B1+)</h1>
                         </div>
                         <div className="flex-1 max-w-xl mx-8 hidden sm:block">
                             <div className="bg-navy-800 h-3 rounded-full overflow-hidden shadow-inner border border-navy-700">
@@ -824,15 +814,19 @@
                         {showMenu && <div className="absolute inset-0 bg-navy-900/30 backdrop-blur-sm z-20" onClick={() => setShowMenu(false)}></div>}
 
                         {/* Slide Content */}
-                        <main ref={mainRef} className="flex-1 overflow-y-auto px-4 sm:px-8 pt-12 pb-32 flex flex-col relative z-10">
-                            <div className="text-center mb-12 animate-fade-in-down">
-                                <Badge color="gold">Module {currentSlide + 1} • {slide.subtitle}</Badge>
-                                <h2 className="text-4xl md:text-6xl font-extrabold text-navy-900 mt-6 tracking-tight">{slide.title}</h2>
+                        <main ref={mainRef} className="flex-1 overflow-y-auto px-4 sm:px-8 pt-12 pb-32 flex flex-col items-center relative z-10">
+                            <div className="w-full shrink-0 flex flex-col items-center">
+                                <div className="text-center mb-12 animate-fade-in-down shrink-0">
+                                    <Badge color="gold">Module {currentSlide + 1} • {slide.subtitle}</Badge>
+                                    <h2 className="text-4xl md:text-6xl font-extrabold text-navy-900 mt-6 tracking-tight">{slide.title}</h2>
+                                </div>
+                                
+                                <div className="w-full max-w-5xl shrink-0">
+                                    <ErrorBoundary key={slide.id}>
+                                        {slide.content()}
+                                    </ErrorBoundary>
+                                </div>
                             </div>
-                            
-                            <ErrorBoundary key={slide.id}>
-                                {slide.content()}
-                            </ErrorBoundary>
                         </main>
 
                         {/* Teacher Notes Panel */}
